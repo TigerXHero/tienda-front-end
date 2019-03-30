@@ -1,6 +1,7 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, Renderer2} from '@angular/core';
 import {Item} from '../shared/item';
 import {ItemService} from '../services/item.service';
+import {$} from 'protractor';
 
 @Component({
   selector: 'app-catalog',
@@ -8,11 +9,15 @@ import {ItemService} from '../services/item.service';
   styleUrls: ['./catalog.component.scss']
 })
 export class CatalogComponent implements OnInit {
-
+  public isActive1 = false;
+  public isActive2 = false;
+  public isActive3 = false;
+  public isActive4 = false;
   items: Item[];
 
   constructor(private itemService: ItemService,
-              @Inject('BaseURL') private BaseURL) {
+              @Inject('BaseURL') private BaseURL,
+              private rederer: Renderer2) {
   }
 
   ngOnInit(): void {
@@ -20,3 +25,5 @@ export class CatalogComponent implements OnInit {
   }
 
 }
+
+

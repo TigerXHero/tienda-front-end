@@ -1,32 +1,33 @@
-<div class="container"
-     fxLayout="column"
-     fxLayoutGap="10px">
+<!--<ul class="nav nav-pills nav-fill">
+  <li class="nav-item">
+    <a class="nav-link active" routerLink="tractores">Tractores</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="motocultores">Motocultores</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="palas-cargadoras">Palas Cargadoras</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="otros">Otros</a>
+  </li>
+</ul>
+<router-outlet></router-outlet>-->
 
-  <div fxFlex>
-    <div>
-      <h3>Catalogo</h3>
-      <hr>
+
+<div class="row">
+  <div class="col-3">
+
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" routerLink="tractores" role="tab" aria-controls="v-pills-home" (click)="isActive = !isActive" [attr.aria-selected]="isActive" >Tractores</a>
+      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" routerLink="motocultores" role="tab" aria-controls="v-pills-profile" aria-selected="false">Motocultores</a>
+      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" routerLink="palas-cargadoras" role="tab" aria-controls="v-pills-messages" aria-selected="false">Palas cargadoras</a>
+      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" routerLink="otros" role="tab" aria-controls="v-pills-settings" aria-selected="false">Otros</a>
     </div>
   </div>
-
-  <div fxFlex *ngIf="items">
-    <!--binding del dom al property del objeto
-    [propiedadDelComponente]="valorDesdeElDOM"
-    bind-propiedadDelComponente="valorDesdeElDOM"
-    -->
-    <mat-grid-list [cols]="2" bind-rowHeight="'200px'" [gutterSize]="'10px'">
-      <mat-grid-tile *ngFor="let item of items" [routerLink]="['/itemdetail', item.id]">
-        <img height="200px" data-src="data:image/png;base64,{{item.image}}"
-             alt={{item.name}}>
-        <mat-grid-tile-footer>
-          <h1 mat-line>{{item.name | uppercase}}</h1>
-        </mat-grid-tile-footer>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </div>
-
-  <div [hidden]="items">
-    <mat-spinner></mat-spinner>
-    <h4>Loading . . . Please Wait</h4>
+  <div class="col-9">
+    <router-outlet></router-outlet>
   </div>
 </div>
+
+

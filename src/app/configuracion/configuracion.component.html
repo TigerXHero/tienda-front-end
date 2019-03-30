@@ -1,0 +1,92 @@
+<!--<form novalidate [formGroup]="user" (ngSubmit)="onSubmit()">
+  <label>
+    <span>Nombre: </span>
+    <mat-form-field>
+      <input matInput
+             type="text"
+             placeholder="Nombres"
+             formControlName="firstName">
+    </mat-form-field>
+  </label><br><br>
+  <label>
+    <span>Marca: </span>
+    <mat-form-field>
+      <input matInput
+             type="text"
+             placeholder="Apellidos"
+             formControlName="lastName">
+    </mat-form-field>
+  </label><br><br>
+  <label>
+    <span>Año: </span>
+    <mat-form-field>
+      <input matInput
+             type="text"
+             placeholder="Puesto"
+             formControlName="jobPosition">
+    </mat-form-field>
+  </label><br><br>
+  <label>
+    <span>Modelo:  </span>
+    <mat-form-field>
+      <input matInput
+             type="text"
+             placeholder="codigo de trabajo"
+             formControlName="jobCode">
+    </mat-form-field>
+  </label><br><br>
+  <label>
+    <span>Descripción:  </span>
+    <mat-form-field>
+      <input matInput
+             type="text"
+             placeholder="destacado: true or false"
+             formControlName="featured">
+    </mat-form-field>
+  </label><br><br>
+  <br><br>
+  <button type="submit" mat-flat-button color="primary" > Guardar</button>
+</form>-->
+<div class="col-md-4 offset-md-4 ">
+  <h3 class="text-center">Registrar maquinaria</h3>
+  <form novalidate [formGroup]="user" (ngSubmit)="onSubmit()"  class="was-validated">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Este campo es obligatorio.</div>
+    </div>
+    <div class="form-group">
+      <label for="marca">Marca:</label>
+      <input type="text" class="form-control" id="marca" name="marca" formControlName="marca" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Este campo es obligatorio.</div>
+    </div>
+    <div class="form-group">
+      <label for="anio">Año:</label>
+      <input type="text" class="form-control" id="anio" name="anio" formControlName="anio" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Este campo es obligatorio.</div>
+    </div>
+    <div class="form-group">
+      <label for="modelo">Modelo:</label>
+      <input type="text" class="form-control" id="modelo" name="modelo" formControlName="modelo" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Este campo es obligatorio.</div>
+    </div>
+    <div class="form-group">
+      <label for="descripcion">Desripción:</label>
+      <input type="text" class="form-control" id="descripcion" name="descripcion" formControlName="descripcion" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Este campo es obligatorio.</div>
+    </div>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+      <label class="custom-file-label" for="validatedCustomFile">Seleccione una imagen...</label>
+      <div class="invalid-feedback">Archivo no válido</div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+  </form>
+</div>

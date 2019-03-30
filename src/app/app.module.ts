@@ -48,6 +48,15 @@ import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {baseURL} from './shared/baseurl';
+import { TractoresComponent } from './tractores/tractores.component';
+import { MotocultoresComponent } from './motocultores/motocultores.component';
+import { PalasCargadorasComponent } from './palas-cargadoras/palas-cargadoras.component';
+import { OtrosComponent } from './otros/otros.component';
+import { MarcaComponent } from './marca/marca.component';
+import { ModeloComponent } from './modelo/modelo.component';
+import { CapacidadComponent } from './capacidad/capacidad.component';
+import { PrecioComponent } from './precio/precio.component';
+import { ConfiguracionComponent } from './configuracion/configuracion.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +68,16 @@ import {baseURL} from './shared/baseurl';
     AboutComponent,
     HomeComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    TractoresComponent,
+    MotocultoresComponent,
+    PalasCargadorasComponent,
+    OtrosComponent,
+    MarcaComponent,
+    ModeloComponent,
+    CapacidadComponent,
+    PrecioComponent,
+    ConfiguracionComponent
   ],
   imports: [
     BrowserModule,
