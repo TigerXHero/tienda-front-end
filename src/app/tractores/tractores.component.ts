@@ -18,6 +18,10 @@ export class TractoresComponent implements OnInit {
 import {Component, Inject, OnInit} from '@angular/core';
 import {Item} from '../shared/item';
 import {ItemService} from '../services/item.service';
+import {Maquinaria} from '../shared/maquinaria';
+import {AppURL} from '../shared/appUrl';
+import {MaquinariaService} from '../services/maquinaria.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-tractores',
@@ -26,21 +30,24 @@ import {ItemService} from '../services/item.service';
 })
 export class TractoresComponent implements OnInit {
 
-  items: Item[];
+  // items: Item[];
+  maquinarias: Maquinaria[];
+  public url = AppURL.getUrlMaquinarias();
 
-  constructor(private itemService: ItemService,
-              @Inject('BaseURL') private BaseURL) {
+  constructor(private http: HttpClient,
+              @Inject('BaseURL') private BaseURL,
+              public maquinariaService: MaquinariaService) {
   }
 
   ngOnInit(): void {
-    this.itemService.getMaquinarias().subscribe(items => this.items = items);
-    console.log(this.items);
+    this.maquinariaService.getMaquinarias().subscribe(maquinarias => this.maquinarias = maquinarias);
+    console.log(this.maquinarias);
   }
 
-  subiendoando(ev: any, id: number) {
-    let img: any = ev.target;
+  subiendoando(id: number) {
+    let img: any = 'file';
     if (img.files.length > 0) {
-      this.itemService.guardarImagen(img.files[0], id).subscribe(
+      this.maquinariaService.guardarImagen(img.files[0], id).subscribe(
         resp => {
           // this.recargar(id);
           console.log(resp);

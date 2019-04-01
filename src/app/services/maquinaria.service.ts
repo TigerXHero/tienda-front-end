@@ -18,4 +18,11 @@ export class MaquinariaService {
   getMaquinaria(id: number): Observable<Maquinaria> {
     return <Observable<Maquinaria>>this.http.get(baseURL + 'maquinarias/' + id);
   }
+
+  guardarImagen(file: File, id: number): Observable<Response> {
+    let form = new FormData();
+    form.append('file', file);
+    return this.http.post<Response>(baseURL + 'maquinarias/' + id + '/imagen', form);
+  }
+
 }
