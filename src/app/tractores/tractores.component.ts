@@ -33,7 +33,8 @@ export class TractoresComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.itemService.getItems().subscribe(items => this.items = items);
+    this.itemService.getMaquinarias().subscribe(items => this.items = items);
+    console.log(this.items);
   }
 
 }

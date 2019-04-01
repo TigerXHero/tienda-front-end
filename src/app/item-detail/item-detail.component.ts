@@ -23,7 +23,7 @@ export class ItemDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.itemService.getItemIds().subscribe(items => {
+    /*this.itemService.getItemIds().subscribe(items => {
       this.itemIds = items;
       this.route.params
         .switchMap((params: Params) => this.itemService.getItem(+params['id']))
@@ -31,7 +31,7 @@ export class ItemDetailComponent implements OnInit {
           this.item = item;
           this.setPrevNext(item.id);
         });
-    });
+    });*/
   }
 
   goBack(): void {

@@ -12,17 +12,16 @@ import {EmployeeService} from '../services/employee.service';
 export class HomeComponent implements OnInit {
 
   item: Item;
-  employee: Employee;
 
-  constructor(private itemService: ItemService,
-              private employeeService: EmployeeService) {
+
+  constructor(private itemService: ItemService) {
   }
 
   ngOnInit() {
-    this.itemService.getFeaturedItem()
-      .subscribe(item => this.item = item);
-    this.employeeService.getFeaturedEmployee()
-      .then(employee => this.employee = employee);
+    /*this.itemService.getFeaturedItem()
+      .subscribe(item => this.item = item);*/
+    // this.employeeService.getFeaturedEmployee()
+    //   .then(employee => this.employee = employee);
   }
 
 }

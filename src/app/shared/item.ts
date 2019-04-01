@@ -1,5 +1,5 @@
 import {Comment} from './comment';
-
+/*
 export class Item {
   id: number;
   featured: boolean;
@@ -10,4 +10,17 @@ export class Item {
   price: string;
   description: string;
   comments: Comment[];
+}*/
+
+export class Item {
+  id: number;
+  codigo: string;
+  categoria: string;
+  marca: string;
+  modelo: string;
+  capacidad: string;
+  precio: string;
+  imagen: string;
+  subCategoriaId: number;
 }
+

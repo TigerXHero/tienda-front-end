@@ -1,9 +1,10 @@
+/*
 import {Employee} from './employee';
 
 export const EMPLOYEES: Employee[] = [
   {
     id: 0,
-    name: 'Henry Cavill',
+    firstName: 'Henry Cavill',
     image: '/assets/images/henry.jpg',
     jobPosition: 'Chief Enterprise Officer',
     jobCode: 'CEO',
@@ -44,3 +45,4 @@ export const EMPLOYEES: Employee[] = [
       'los actuales antes de la implementacion de las nuevas funcionalidades.'
   }
 ];
+*/

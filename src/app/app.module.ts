@@ -57,6 +57,10 @@ import { ModeloComponent } from './modelo/modelo.component';
 import { CapacidadComponent } from './capacidad/capacidad.component';
 import { PrecioComponent } from './precio/precio.component';
 import { ConfiguracionComponent } from './configuracion/configuracion.component';
+import { ExcavadorasComponent } from './excavadoras/excavadoras.component';
+import { MontacargasComponent } from './montacargas/montacargas.component';
+import { BarredorasComponent } from './barredoras/barredoras.component';
+// import { ServicesComponent } from './shared/services/services.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +81,10 @@ import { ConfiguracionComponent } from './configuracion/configuracion.component'
     ModeloComponent,
     CapacidadComponent,
     PrecioComponent,
-    ConfiguracionComponent
+    ConfiguracionComponent,
+    ExcavadorasComponent,
+    MontacargasComponent,
+    BarredorasComponent,
   ],
   imports: [
     BrowserModule,

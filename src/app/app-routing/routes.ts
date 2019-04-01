@@ -14,6 +14,9 @@ import {MarcaComponent} from '../marca/marca.component';
 import {CapacidadComponent} from '../capacidad/capacidad.component';
 import {PrecioComponent} from '../precio/precio.component';
 import {ConfiguracionComponent} from '../configuracion/configuracion.component';
+import {ExcavadorasComponent} from '../excavadoras/excavadoras.component';
+import {MontacargasComponent} from '../montacargas/montacargas.component';
+import {BarredorasComponent} from '../barredoras/barredoras.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -23,7 +26,10 @@ export const routes: Routes = [
       {path: 'tractores', component: TractoresComponent},
       {path: 'motocultores', component: MotocultoresComponent},
       {path: 'palas-cargadoras', component: PalasCargadorasComponent},
-      {path: 'otros', component: OtrosComponent}
+      {path: 'excavadoras', component: ExcavadorasComponent},
+      {path: 'otros', component: OtrosComponent},
+      {path: 'montacargas', component: MontacargasComponent},
+      {path: 'barredoras', component: BarredorasComponent}
     ]
   },
   {path: 'modelo', component: ModeloComponent},

@@ -1,70 +1,10 @@
-<!--<form novalidate [formGroup]="user" (ngSubmit)="onSubmit()">
-  <label>
-    <span>Nombre: </span>
-    <mat-form-field>
-      <input matInput
-             type="text"
-             placeholder="Nombres"
-             formControlName="firstName">
-    </mat-form-field>
-  </label><br><br>
-  <label>
-    <span>Marca: </span>
-    <mat-form-field>
-      <input matInput
-             type="text"
-             placeholder="Apellidos"
-             formControlName="lastName">
-    </mat-form-field>
-  </label><br><br>
-  <label>
-    <span>Año: </span>
-    <mat-form-field>
-      <input matInput
-             type="text"
-             placeholder="Puesto"
-             formControlName="jobPosition">
-    </mat-form-field>
-  </label><br><br>
-  <label>
-    <span>Modelo:  </span>
-    <mat-form-field>
-      <input matInput
-             type="text"
-             placeholder="codigo de trabajo"
-             formControlName="jobCode">
-    </mat-form-field>
-  </label><br><br>
-  <label>
-    <span>Descripción:  </span>
-    <mat-form-field>
-      <input matInput
-             type="text"
-             placeholder="destacado: true or false"
-             formControlName="featured">
-    </mat-form-field>
-  </label><br><br>
-  <br><br>
-  <button type="submit" mat-flat-button color="primary" > Guardar</button>
-</form>-->
+
 <div class="col-md-4 offset-md-4 ">
   <h3 class="text-center">Registrar maquinaria</h3>
-  <form novalidate [formGroup]="user" (ngSubmit)="onSubmit()"  class="was-validated">
-    <div class="form-group">
-      <label for="nombre">Nombre:</label>
-      <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Este campo es obligatorio.</div>
-    </div>
+  <form novalidate [formGroup]="maquinaria" (ngSubmit)="onSubmit()"  class="was-validated">
     <div class="form-group">
       <label for="marca">Marca:</label>
       <input type="text" class="form-control" id="marca" name="marca" formControlName="marca" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Este campo es obligatorio.</div>
-    </div>
-    <div class="form-group">
-      <label for="anio">Año:</label>
-      <input type="text" class="form-control" id="anio" name="anio" formControlName="anio" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Este campo es obligatorio.</div>
     </div>
@@ -75,18 +15,56 @@
       <div class="invalid-feedback">Este campo es obligatorio.</div>
     </div>
     <div class="form-group">
-      <label for="descripcion">Desripción:</label>
-      <input type="text" class="form-control" id="descripcion" name="descripcion" formControlName="descripcion" required>
+      <label for="capacidad">Capacidad:</label>
+      <input type="text" class="form-control" id="capacidad" name="capacidad" formControlName="capacidad" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Este campo es obligatorio.</div>
     </div>
-    <div class="custom-file">
+    <div class="form-group">
+      <label for="precio">Precio:</label>
+      <input type="text" class="form-control" id="precio" name="precio" formControlName="precio" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Este campo es obligatorio.</div>
+    </div>
+    <!--<div class="custom-file">
       <input type="file" class="custom-file-input" id="validatedCustomFile" required>
       <label class="custom-file-label" for="validatedCustomFile">Seleccione una imagen...</label>
       <div class="invalid-feedback">Archivo no válido</div>
+    </div>-->
+    <div class="image-upload">
+      <img [src]="imageSrc" style="max-width:300px;max-height:300px"/>
+      <input name="imagen" type="file" accept="image/*" (change)="handleInputChange($event)" />
+    </div>
+    <!--<div class="custom-file">
+      <img [src]="imageSrc" style="max-width:300px;max-height:300px"/>
+      <input name="imagen" formControlName="imagen" type="file" />
+    </div>-->
+    <div class="form-group">
+      <label for="subCategoriaId">Subcategoria:</label>
+      <input type="text" class="form-control" id="subCategoriaId" name="subCategoriaId" formControlName="subCategoriaId" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Este campo es obligatorio tipo Long.</div>
     </div>
     <div class="text-center">
       <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
   </form>
 </div>
+
+
+<!--
+<div class="col-md-4 offset-md-4 ">
+  <h3 class="text-center">Registrar maquinaria</h3>
+  <form novalidate [formGroup]="employee" (ngSubmit)="onSubmitEmployee()"  class="was-validated">
+    <div>
+      <label for="firstName">Nombre:</label>
+      <input type="text" class="form-control" id="firstName" name="firstName" formControlName="firstName" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Este campo es obligatorio.</div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Enviar Employee</button>
+    </div>
+  </form>
+</div>
+-->
