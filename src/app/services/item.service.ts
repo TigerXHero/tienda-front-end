@@ -15,6 +15,12 @@ export class ItemService {
   constructor(private http: HttpClient) {
   }
 
+  guardarImagen(file: File, id: number): Observable<Response> {
+    let form = new FormData();
+    form.append('file', file);
+    return this.http.post<Response>(baseURL + 'maquinarias/' + id + '/imagen', form);
+  }
+
   getMaquinarias(): Observable<Item[]> {
     return <Observable<Item[]>>this.http.get(baseURL + 'maquinarias');
   }

@@ -37,5 +37,21 @@ export class TractoresComponent implements OnInit {
     console.log(this.items);
   }
 
+  subiendoando(ev: any, id: number) {
+    let img: any = ev.target;
+    if (img.files.length > 0) {
+      this.itemService.guardarImagen(img.files[0], id).subscribe(
+        resp => {
+          // this.recargar(id);
+          console.log(resp);
+        },
+        error => {
+          window.location.reload();
+          console.error(error);
+        }
+      );
+    }
+  }
+
 }
 
