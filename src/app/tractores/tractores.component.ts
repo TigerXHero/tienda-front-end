@@ -1,23 +1,4 @@
-/*import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-tractores',
-  templateUrl: './tractores.component.html',
-  styleUrls: ['./tractores.component.scss']
-})
-export class TractoresComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}*/
-
-
 import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
-import {Item} from '../shared/item';
-import {ItemService} from '../services/item.service';
 import {Maquinaria} from '../shared/maquinaria';
 import {AppURL} from '../shared/appUrl';
 import {MaquinariaService} from '../services/maquinaria.service';
@@ -34,6 +15,7 @@ export class TractoresComponent implements OnInit {
   maquinarias: Maquinaria[];
   public url = AppURL.getUrlMaquinarias();
   selectedFile: ImageSnippet;
+  tractor: Maquinaria[];
 
   @Output() updateView = new EventEmitter();
 
@@ -45,7 +27,8 @@ export class TractoresComponent implements OnInit {
 
   ngOnInit(): void {
     this.maquinariaService.getMaquinarias().subscribe(maquinarias => this.maquinarias = maquinarias);
-    console.log(this.maquinarias);
+
+    // console.log('maquinita: ' + this.maquinarias);
   }
 
   private onSuccess() {

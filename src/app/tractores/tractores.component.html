@@ -1,125 +1,107 @@
-<div class="tab-pane fade show active" id="pills-tractores" role="tabpanel" aria-labelledby="pills-home-tab">
+<div class="tab-pane fade show active" id="pills-tractores" role="tabpanel" aria-labelledby="pills-home-tab"
+     *ngIf="maquinarias">
+  <div class="" style="border: 5px solid red;">
 
-<!--  <div class="card-deck">
-  <div class="card">
-    <img src="../../assets/images/tractores/t-nuevo-689.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Tractor nuevo N°689</h5>
-      <p class="card-text"> </p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Mas información</small>
-    </div>
-  </div>
-  <div class="card">
-    <img src="../../assets/images/tractores/t-usado-650.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-  <div class="card">
-    <img src="../../assets/images/tractores/t-usado-668.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-</div>
+    <div *ngFor="let item of maquinarias" [routerLink]="['/maquinarias', item.id]"
+         style="border: 5px solid green;">
+      <!--<div class="col-md-6 col-sm-6 col-lg-6" style="border: 5px solid blue;">-->
+      <div  *ngIf="item.categoria == 'TRACTOR'" style="border: 5px solid yellow;" class="col-md-6">
+        <div   style="border: 5px solid deeppink;" >
+          <!--<div class="card-deck">-->
+          <div class="card" style="border: 5px solid cyan;" >
+            <img data-src="data:image/png;base64,{{item.imagen}}" class="card-img-top img-thumbnail" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{item.marca | uppercase}}, {{item.modelo}}</h5>
+              <p class="card-text"></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Mas información</small>
+              <button class="btn">
+              <span class="btn btn-warning btn-file fa fa-upload">
+                <input #imageInput
+                       type="file"
+                       accept="image/*"
+                       (change)="processFile(imageInput, item.id)"/>
+              </span>
+              </button>
+              <div *ngIf="selectedFile" class="img-preview-container">
 
-  <div class="card-deck">
-    <div class="card">
-      <img src="../../assets/images/tractores/t-nuevo-689.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Tractor nuevo N°689</h5>
-        <p class="card-text"> </p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Mas información</small>
-      </div>
-    </div>
-    <div class="card">
-      <img src="../../assets/images/tractores/t-usado-650.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img src="../../assets/images/tractores/t-usado-668.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>-->
+                <div class="img-preview{{selectedFile.status === 'fail' ? '-error' : ''}}"
+                     [ngStyle]="{'background-image': 'url('+ selectedFile.src + ')'}">
+                </div>
 
-  <div fxFlex *ngIf="maquinarias">
-    <mat-grid-list [cols]="2" bind-rowHeight="'200px'" [gutterSize]="'10px'">
-      <mat-grid-tile *ngFor="let item of maquinarias" [routerLink]="['/maquinarias', item.id]">
-        <img height="200px" data-src="data:image/png;base64,{{item.imagen}}" />
-        <mat-grid-tile-footer>
-          <h1 mat-line>{{item.marca | uppercase}}, {{item.modelo}}</h1>
+                <div *ngIf="selectedFile.pending" class="img-loading-overlay">
+                  <div class="img-spinning-circle"></div>
+                </div>
 
-
-
-        <button class="btn btn-info">
-          <span class=" fa fa-upload">
-            <input #imageInput
-                   type="file"
-                   accept="image/*"
-                   (change)="processFile(imageInput, item.id)" />
-          </span>
-        </button>
-
-          <!--<button
-                  (click)='uploadImage(item.id)'
-                  class='btn btn-success'
-                  type='button'>Subir</button>-->
-
-
-        <div *ngIf="selectedFile" class="img-preview-container">
-
-          <div class="img-preview{{selectedFile.status === 'fail' ? '-error' : ''}}"
-               [ngStyle]="{'background-image': 'url('+ selectedFile.src + ')'}">
+                <div *ngIf="selectedFile.status === 'ok'" class="alert alert-success"> Image Uploaded Succesfuly!</div>
+                <div *ngIf="selectedFile.status === 'fail'" class="alert alert-danger"> Image Upload Failed!</div>
+              </div>
+            </div>
           </div>
-
-          <div *ngIf="selectedFile.pending" class="img-loading-overlay">
-            <div class="img-spinning-circle"></div>
-          </div>
-
-          <div *ngIf="selectedFile.status === 'ok'" class="alert alert-success"> Image Uploaded Succesfuly!</div>
-          <div *ngIf="selectedFile.status === 'fail'" class="alert alert-danger"> Image Upload Failed!</div>
+          <!--</div>-->
         </div>
-
-        </mat-grid-tile-footer>
-
-        <!--<div class="image-upload">-->
-          <!--<input type="file" (change)="subiendoando(item.id)" multiple>-->
-          <!--<img  style="max-width:300px;max-height:300px"/>-->
-          <!--&lt;!&ndash;<input name="imagen" type="file" accept="image/*" (change)="subiendoando('imagen', item.id)" />&ndash;&gt;-->
-        <!--</div>-->
-        <!--<button type="button" class="btn btn-primary" (click)="subiendoando(item.id)"></button>-->
-      </mat-grid-tile>
-    </mat-grid-list>
-  </div>
-
-  <div [hidden]="maquinarias">
-    <mat-spinner></mat-spinner>
-    <h4>Loading . . . Please Wait</h4>
+      </div>
+    </div>
   </div>
 </div>
+
+
+<!--<div fxFlex *ngIf="maquinarias">-->
+<!--<mat-grid-list [cols]="2" bind-rowHeight="'200px'" [gutterSize]="'10px'">-->
+<!--<mat-grid-tile *ngFor="let item of maquinarias" [routerLink]="['/maquinarias', item.id]">-->
+<!--<div *ngIf="item.categoria == 'TRACTOR'">-->
+<!--<img height="200px" data-src="data:image/png;base64,{{item.imagen}}"/>-->
+<!--<mat-grid-tile-footer>-->
+<!--<h1 mat-line>{{item.marca | uppercase}}, {{item.modelo}}</h1>-->
+
+
+<!--<button class="btn">-->
+<!--<span class="btn btn-warning btn-file fa fa-upload">-->
+<!--<input #imageInput-->
+<!--type="file"-->
+<!--accept="image/*"-->
+<!--(change)="processFile(imageInput, item.id)"/>-->
+<!--</span>-->
+<!--</button>-->
+
+<!--&lt;!&ndash;<button-->
+<!--(click)='uploadImage(item.id)'-->
+<!--class='btn btn-success'-->
+<!--type='button'>Subir</button>&ndash;&gt;-->
+
+
+<!--<div *ngIf="selectedFile" class="img-preview-container">-->
+
+<!--<div class="img-preview{{selectedFile.status === 'fail' ? '-error' : ''}}"-->
+<!--[ngStyle]="{'background-image': 'url('+ selectedFile.src + ')'}">-->
+<!--</div>-->
+
+<!--<div *ngIf="selectedFile.pending" class="img-loading-overlay">-->
+<!--<div class="img-spinning-circle"></div>-->
+<!--</div>-->
+
+<!--<div *ngIf="selectedFile.status === 'ok'" class="alert alert-success"> Image Uploaded Succesfuly!</div>-->
+<!--<div *ngIf="selectedFile.status === 'fail'" class="alert alert-danger"> Image Upload Failed!</div>-->
+<!--</div>-->
+
+<!--</mat-grid-tile-footer>-->
+
+<!--&lt;!&ndash;<div class="image-upload">&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="file" (change)="subiendoando(item.id)" multiple>&ndash;&gt;-->
+<!--&lt;!&ndash;<img  style="max-width:300px;max-height:300px"/>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<input name="imagen" type="file" accept="image/*" (change)="subiendoando('imagen', item.id)" />&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<button type="button" class="btn btn-primary" (click)="subiendoando(item.id)"></button>&ndash;&gt;-->
+<!--</div>-->
+<!--</mat-grid-tile>-->
+<!--</mat-grid-list>-->
+<!--</div>-->
+
+<div [hidden]="maquinarias">
+  <mat-spinner></mat-spinner>
+  <h4>Loading . . . Please Wait</h4>
+</div>
+
 
 
