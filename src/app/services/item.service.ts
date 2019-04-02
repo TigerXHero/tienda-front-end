@@ -17,13 +17,13 @@ export class ItemService {
 
 
 
-  getMaquinarias(): Observable<Item[]> {
+ /* getMaquinarias(): Observable<Item[]> {
     return <Observable<Item[]>>this.http.get(baseURL + 'maquinarias');
   }
 
   getMaquinaria(id: number): Observable<Item> {
     return <Observable<Item>>this.http.get(baseURL + 'maquinarias/' + id);
-  }
+  }*/
 
   getItems(): Observable<Item[]> {
     // return Observable.of(ITEMS).delay(2000);

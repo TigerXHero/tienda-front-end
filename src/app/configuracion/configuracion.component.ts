@@ -40,7 +40,6 @@ export class ConfiguracionComponent implements OnInit {
       modelo: new FormControl('', Validators.required),
       capacidad: new FormControl('', Validators.required),
       precio: new FormControl('', Validators.required),
-      imagen: new FormControl(this.imageSrc),
       subCategoriaId: new FormControl('', Validators.required)
     });
 
@@ -50,9 +49,9 @@ export class ConfiguracionComponent implements OnInit {
 
 
 
-  handleInputChange(e) {
+  /*handleInputChange(e) {
     var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
-    var pattern = /image-*/;
+    var pattern = /image-*!/;
     var reader = new FileReader();
     if (!file.type.match(pattern)) {
       alert('invalid format');
@@ -65,7 +64,7 @@ export class ConfiguracionComponent implements OnInit {
     let reader = e.target;
     this.imageSrc = reader.result;
     console.log(this.imageSrc);
-  }
+  }*/
 
   onSubmit() {
     this.requestService.add(this.url, this.maquinaria.value, []).subscribe(

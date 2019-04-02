@@ -17,7 +17,7 @@ export class AppURL {
     selectproductos      :  '/selectproductos',
     selectunidades      :  '/selectunidades',
     select               :  '/select',
-    maquinarias          : '/maquinarias'
+    maquinarias          : 'maquinarias'
   };
   public static getUrlPais(): string {
     return this.urlBase + this._urls.pais;

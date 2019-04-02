@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {baseURL} from '../shared/baseurl';
 import {HttpClient} from '@angular/common/http';
 import {Maquinaria} from '../shared/maquinaria';
@@ -8,6 +8,9 @@ import {Maquinaria} from '../shared/maquinaria';
   providedIn: 'root'
 })
 export class MaquinariaService {
+
+  private maquinariaSubject = new BehaviorSubject([]);
+  private maquinaria: Maquinaria[];
 
   constructor(private http: HttpClient) { }
 
@@ -19,10 +22,14 @@ export class MaquinariaService {
     return <Observable<Maquinaria>>this.http.get(baseURL + 'maquinarias/' + id);
   }
 
-  guardarImagen(file: File, id: number): Observable<Response> {
+  setImageMaquinaria(file: File, id: number): Observable<Response> {
     let form = new FormData();
     form.append('file', file);
-    return this.http.post<Response>(baseURL + 'maquinarias/' + id + '/imagen', form);
+    return this.http.post<Response>(baseURL + 'maquinarias/' + id + '/image', form);
   }
 
+  refresh() {
+    // Emitir los nuevos valores para que todos los que dependan se actualicen.
+    this.maquinariaSubject.next(this.maquinaria);
+  }
 }

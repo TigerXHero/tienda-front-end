@@ -71,13 +71,46 @@
       <mat-grid-tile *ngFor="let item of maquinarias" [routerLink]="['/maquinarias', item.id]">
         <img height="200px" data-src="data:image/png;base64,{{item.imagen}}" />
         <mat-grid-tile-footer>
-          <h1 mat-line>{{item.categoria | uppercase}}</h1>
-        </mat-grid-tile-footer>
-        <div class="image-upload">
-          <input type="file" (change)="subiendoando(item.id)" multiple>
-          <img  style="max-width:300px;max-height:300px"/>
-          <!--<input name="imagen" type="file" accept="image/*" (change)="subiendoando('imagen', item.id)" />-->
+          <h1 mat-line>{{item.marca | uppercase}}, {{item.modelo}}</h1>
+
+
+
+        <button class="btn btn-info">
+          <span class=" fa fa-upload">
+            <input #imageInput
+                   type="file"
+                   accept="image/*"
+                   (change)="processFile(imageInput, item.id)" />
+          </span>
+        </button>
+
+          <!--<button
+                  (click)='uploadImage(item.id)'
+                  class='btn btn-success'
+                  type='button'>Subir</button>-->
+
+
+        <div *ngIf="selectedFile" class="img-preview-container">
+
+          <div class="img-preview{{selectedFile.status === 'fail' ? '-error' : ''}}"
+               [ngStyle]="{'background-image': 'url('+ selectedFile.src + ')'}">
+          </div>
+
+          <div *ngIf="selectedFile.pending" class="img-loading-overlay">
+            <div class="img-spinning-circle"></div>
+          </div>
+
+          <div *ngIf="selectedFile.status === 'ok'" class="alert alert-success"> Image Uploaded Succesfuly!</div>
+          <div *ngIf="selectedFile.status === 'fail'" class="alert alert-danger"> Image Upload Failed!</div>
         </div>
+
+        </mat-grid-tile-footer>
+
+        <!--<div class="image-upload">-->
+          <!--<input type="file" (change)="subiendoando(item.id)" multiple>-->
+          <!--<img  style="max-width:300px;max-height:300px"/>-->
+          <!--&lt;!&ndash;<input name="imagen" type="file" accept="image/*" (change)="subiendoando('imagen', item.id)" />&ndash;&gt;-->
+        <!--</div>-->
         <!--<button type="button" class="btn btn-primary" (click)="subiendoando(item.id)"></button>-->
       </mat-grid-tile>
     </mat-grid-list>
