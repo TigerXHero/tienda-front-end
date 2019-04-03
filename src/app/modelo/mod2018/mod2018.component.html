@@ -1,0 +1,26 @@
+<div class="tab-pane fade show active" id="pills-tractores" role="tabpanel" aria-labelledby="pills-home-tab">
+  <div class="" >
+
+    <div *ngFor="let item of maquinarias" [routerLink]="['/maquinarias', item.id]">
+      <div  *ngIf="item.modelo == 'MOD-2018'"  class="col-md-6">
+        <div class="card"  >
+          <img data-src="data:image/png;base64,{{item.imagen}}" class="card-img-top img-thumbnail" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{item.marca | uppercase}}, {{item.modelo}}</h5>
+            <p class="card-text"></p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Mas información proximamente</small>
+            <button class="btn">
+              <span class="btn btn-warning btn-file fa fa-upload">
+                <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput, item.id)"/>
+              </span>
+            </button>
+
+            <button class="btn btn-danger fa fa-trash" (click)="onBorrar(item.id)"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

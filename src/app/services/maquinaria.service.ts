@@ -23,9 +23,13 @@ export class MaquinariaService {
   }
 
   setImageMaquinaria(file: File, id: number): Observable<Response> {
-    let form = new FormData();
-    form.append('file', file);
-    return this.http.post<Response>(baseURL + 'maquinarias/' + id + '/image', form);
+    let formImg = new FormData();
+    formImg.append('file', file);
+    return this.http.post<Response>(baseURL + 'maquinarias/' + id + '/image', formImg);
+  }
+
+  public deleteMaquinaria( url, id): Observable<any> {
+    return this.http.delete(baseURL + '/' + id);
   }
 
   refresh() {

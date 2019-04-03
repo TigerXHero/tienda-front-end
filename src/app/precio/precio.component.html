@@ -1,3 +1,12 @@
-<p>
-  precio works!
-</p>
+<div class="row">
+  <div class="col-3">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="btn btn-warning text-left" routerLink="p-1" >Precio-1 ( < 10000 $ )</a>
+      <a class="btn btn-warning text-left" routerLink="p-2">Precio-2 (> 10000 $ y < 20000 $)</a>
+      <a class="btn btn-warning text-left" routerLink="p-3" >Precio-3 (> 20000 $ y < 30000 $)</a>
+    </div>
+  </div>
+  <div class="col-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>

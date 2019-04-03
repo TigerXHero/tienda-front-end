@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import {Maquinaria} from '../shared/maquinaria';
-import {AppURL} from '../shared/appUrl';
 import {MaquinariaService} from '../services/maquinaria.service';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {baseURL} from '../shared/baseurl';
+import {AppURL} from '../shared/appUrl';
 import {RequestService} from '../services/request.service';
 
 @Component({
@@ -13,7 +14,7 @@ import {RequestService} from '../services/request.service';
 export class MontacargasComponent implements OnInit {
 
   maquinarias: Maquinaria[];
-  public url = AppURL.getUrlMaquinarias();
+  public urlB = AppURL.getUrlMaquinarias();
   selectedFile: ImageSnippet;
 
   @Output() updateView = new EventEmitter();
@@ -21,7 +22,7 @@ export class MontacargasComponent implements OnInit {
   constructor(private http: HttpClient,
               @Inject('BaseURL') private BaseURL,
               public maquinariaService: MaquinariaService,
-              private requestService: RequestService
+              public requestService: RequestService
   ) {
   }
 
@@ -51,12 +52,10 @@ export class MontacargasComponent implements OnInit {
       this.selectedFile.pending = true;
       this.maquinariaService.setImageMaquinaria(this.selectedFile.file, id).subscribe(
         (res) => {
-          this.updateView.emit();
           window.location.reload();
         },
         (err) => {
           window.location.reload();
-          this.updateView.emit();
         });
     });
 
@@ -64,7 +63,7 @@ export class MontacargasComponent implements OnInit {
   }
 
   onBorrar(id: number) {
-    this.requestService.delete(this.url, id).subscribe(
+    this.requestService.delete(this.urlB, id).subscribe(
       response => {
         window.location.reload();
       },

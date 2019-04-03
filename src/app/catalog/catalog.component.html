@@ -1,34 +1,15 @@
-<!--<ul class="nav nav-pills nav-fill">
-  <li class="nav-item">
-    <a class="nav-link active" routerLink="tractores">Tractores</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" routerLink="motocultores">Motocultores</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" routerLink="palas-cargadoras">Palas Cargadoras</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" routerLink="otros">Otros</a>
-  </li>
-</ul>
-<router-outlet></router-outlet>-->
-
-
 <div class="row">
   <div class="col-3">
-    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" routerLink="tractores" role="tab" aria-selected="true" >Tractores</a>
-      <a class="nav-link" id="v-pills-motocultores-tab" data-toggle="pill" routerLink="motocultores" role="tab"  aria-selected="true">Motocultores</a>
-      <a class="nav-link" id="v-pills-palas-tab" data-toggle="pill" routerLink="palas-cargadoras" role="tab" aria-selected="true">Palas cargadoras</a>
-      <a class="nav-link" id="v-pills-excavadoras-tab" data-toggle="pill" routerLink="excavadoras" role="tab" aria-selected="true">Excavadoras</a>
-      <a class="nav-link" id="v-pills-montacargas-tab" data-toggle="pill" routerLink="montacargas" role="tab" aria-selected="true">Montacargas</a>
-      <a class="nav-link" id="v-pills-barredoras-tab" data-toggle="pill" routerLink="barredoras" role="tab" aria-selected="false">Barredoras</a>
+    <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+      <a class="btn btn-warning text-left" routerLink="tractores" >Tractores</a>
+      <a class="btn btn-warning text-left" routerLink="motocultores" >Motocultores</a>
+      <a class="btn btn-warning text-left" routerLink="palas-cargadoras" >Palas cargadoras</a>
+      <a class="btn btn-warning text-left" routerLink="excavadoras" >Excavadoras</a>
+      <a class="btn btn-warning text-left" routerLink="montacargas" >Montacargas</a>
+      <a class="btn btn-warning text-left" routerLink="barredoras" >Barredoras</a>
     </div>
   </div>
   <div class="col-9">
     <router-outlet></router-outlet>
   </div>
 </div>
-
-

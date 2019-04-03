@@ -1,3 +1,17 @@
-<p>
-  marca works!
-</p>
+<div class="row">
+  <div class="col-3">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="btn btn-warning text-left" routerLink="massey-ferguson" >MASSEY FERGUSON</a>
+      <a class="btn btn-warning text-left" routerLink="chagnfa">CHAGNFA</a>
+      <a class="btn btn-warning text-left" routerLink="volvo" >VOLVO</a>
+      <a class="btn btn-warning text-left" routerLink="komatsu" >KOMATSU</a>
+      <a class="btn btn-warning text-left" routerLink="daldoss" >DALDOSS</a>
+      <a class="btn btn-warning text-left" routerLink="tennant" >TENNANT</a>
+    </div>
+  </div>
+  <div class="col-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+

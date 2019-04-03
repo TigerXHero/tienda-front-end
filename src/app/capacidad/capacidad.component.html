@@ -1,3 +1,12 @@
-<p>
-  capacidad works!
-</p>
+<div class="row">
+  <div class="col-3">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="btn btn-warning text-left" routerLink="cap-1" >CAP-1</a>
+      <a class="btn btn-warning text-left" routerLink="cap-2">CAP-2</a>
+      <a class="btn btn-warning text-left" routerLink="cap-3" >CAP-3</a>
+    </div>
+  </div>
+  <div class="col-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>

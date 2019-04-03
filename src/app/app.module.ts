@@ -60,6 +60,21 @@ import { ConfiguracionComponent } from './configuracion/configuracion.component'
 import { ExcavadorasComponent } from './excavadoras/excavadoras.component';
 import { MontacargasComponent } from './montacargas/montacargas.component';
 import { BarredorasComponent } from './barredoras/barredoras.component';
+import { MasseyFergusonComponent } from './marca/massey-ferguson/massey-ferguson.component';
+import { ChagnfaComponent } from './marca/chagnfa/chagnfa.component';
+import { VolvoComponent } from './marca/volvo/volvo.component';
+import { KomatsuComponent } from './marca/komatsu/komatsu.component';
+import { DaldossComponent } from './marca/daldoss/daldoss.component';
+import { TennantComponent } from './marca/tennant/tennant.component';
+import { Mod2016Component } from './modelo/mod2016/mod2016.component';
+import { Mod2017Component } from './modelo/mod2017/mod2017.component';
+import { Mod2018Component } from './modelo/mod2018/mod2018.component';
+import { Cap1Component } from './capacidad/cap1/cap1.component';
+import { Cap2Component } from './capacidad/cap2/cap2.component';
+import { Cap3Component } from './capacidad/cap3/cap3.component';
+import { P1Component } from './precio/p1/p1.component';
+import { P2Component } from './precio/p2/p2.component';
+import { P3Component } from './precio/p3/p3.component';
 // import { ServicesComponent } from './shared/services/services.component';
 
 @NgModule({
@@ -85,6 +100,21 @@ import { BarredorasComponent } from './barredoras/barredoras.component';
     ExcavadorasComponent,
     MontacargasComponent,
     BarredorasComponent,
+    MasseyFergusonComponent,
+    ChagnfaComponent,
+    VolvoComponent,
+    KomatsuComponent,
+    DaldossComponent,
+    TennantComponent,
+    Mod2016Component,
+    Mod2017Component,
+    Mod2018Component,
+    Cap1Component,
+    Cap2Component,
+    Cap3Component,
+    P1Component,
+    P2Component,
+    P3Component,
   ],
   imports: [
     BrowserModule,

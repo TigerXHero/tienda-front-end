@@ -17,7 +17,7 @@ export class AppURL {
     selectproductos      :  '/selectproductos',
     selectunidades      :  '/selectunidades',
     select               :  '/select',
-    maquinarias          : 'maquinarias'
+    maquinarias               :  'maquinarias'
   };
   public static getUrlPais(): string {
     return this.urlBase + this._urls.pais;
@@ -60,13 +60,13 @@ export class AppURL {
   public static  getUrlEmployee(): string {
     return this.urlBase + this._urls.employees;
   }
-  public static  getUrlMaquinarias(): string {
-    return this.urlBase + this._urls.maquinarias;
-  }
   public static  getUrlVenta(): string {
     return this.urlBase + this._urls.ventas;
   }
   public static  getUrlCliente(): string {
     return this.urlBase + this._urls.clientes;
+  }
+  public static  getUrlMaquinarias(): string {
+    return this.urlBase + this._urls.maquinarias;
   }
 }

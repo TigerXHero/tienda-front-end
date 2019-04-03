@@ -5,7 +5,7 @@ export class Maquinaria {
   marca: string;
   modelo: string;
   capacidad: string;
-  precio: string;
+  precio: number;
   imagen: string;
   subCategoriaId: number;
 }

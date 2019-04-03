@@ -1,3 +1,12 @@
-<p>
-  modelo works!
-</p>
+<div class="row">
+  <div class="col-3">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="btn btn-warning text-left" routerLink="mod-2016" >MOD-2016</a>
+      <a class="btn btn-warning text-left" routerLink="mod-2017">MOD-2017</a>
+      <a class="btn btn-warning text-left" routerLink="mod-2018" >MOD-2018</a>
+    </div>
+  </div>
+  <div class="col-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>
