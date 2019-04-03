@@ -3,6 +3,7 @@ import {Maquinaria} from '../shared/maquinaria';
 import {AppURL} from '../shared/appUrl';
 import {MaquinariaService} from '../services/maquinaria.service';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {RequestService} from '../services/request.service';
 
 @Component({
   selector: 'app-tractores',
@@ -15,13 +16,14 @@ export class TractoresComponent implements OnInit {
   maquinarias: Maquinaria[];
   public url = AppURL.getUrlMaquinarias();
   selectedFile: ImageSnippet;
-  tractor: Maquinaria[];
+  // tractor: Maquinaria[];
 
   @Output() updateView = new EventEmitter();
 
   constructor(private http: HttpClient,
               @Inject('BaseURL') private BaseURL,
-              public maquinariaService: MaquinariaService
+              public maquinariaService: MaquinariaService,
+              private requestService: RequestService
   ) {
   }
 
@@ -55,17 +57,32 @@ export class TractoresComponent implements OnInit {
         (res) => {
           // this.maquinariaService.refresh();
           this.updateView.emit();
-          this.onSuccess();
+          window.location.reload();
+          //this.onSuccess();
         },
         (err) => {
           // this.maquinariaService.refresh();
+          window.location.reload();
           this.updateView.emit();
-          this.onError();
-          console.log(this.selectedFile.file + '==' + id);
+          //this.onError();
+          // console.log(this.selectedFile.file + '==' + id);
         });
     });
 
     reader.readAsDataURL(file);
+  }
+
+  onBorrar(id: number) {
+    this.requestService.delete(this.url, id).subscribe(
+      response => {
+        window.location.reload();
+      },
+      error => {
+        console.log('hay errores muchcachos');
+        console.log(error);
+        window.location.reload();
+      }
+    );
   }
 
   subiendoando(id: number) {

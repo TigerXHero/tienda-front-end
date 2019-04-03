@@ -71,9 +71,11 @@ export class ConfiguracionComponent implements OnInit {
       response => {
         //  this.user.reset();
         //  this.router.navigate(['/compra']);
+        window.location.reload();
       },
       error => {
         console.log(error);
+        window.location.reload();
       }
     );
     console.log( this.maquinaria.value);
